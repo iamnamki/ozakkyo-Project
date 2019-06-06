@@ -29,7 +29,8 @@
 
 ## 프로젝트 파일 구조
 
-....
+...
+
 ├─src
 │  └─com
 │      └─encore
@@ -107,3 +108,5 @@
 │  │      userResult.jsp
 │  └─WEB-INF
 └─WebServiceUML
+
+...
