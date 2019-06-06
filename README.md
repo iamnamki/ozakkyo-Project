@@ -1,4 +1,4 @@
-# web 오작교
+# 서비스 정의
 
 오작교 서비스는..
 
@@ -9,3 +9,101 @@
 
 첫인상을 좌우하는 첫 데이트 장소 또는
 사랑하는 사람과의 특별한 추억을 '저장~'해줄 그 곳을 검색해보세요!
+
+# 프로젝트 개요
+- 사용자에게 합리적인 약속장소를 정할 수 있도록 도움을 주며 약속장소 주변의 맛집 정보를 찾아 제공하는 웹 서비스
+
+## 시연 화면
+
+![](sign-up.gif)
+
+![](sign-in.gif)
+
+![](service.gif)
+
+## 사용된 기술
+- HTML, CSS, JS
+- MVC 모델 기반의 JSP
+- 다음 Map api
+- jsoup Web clawring
+
+## 프로젝트 파일 구조
+
+....
+├─src
+│  └─com
+│      └─encore
+│          ├─filter
+│          │      EncodingFilter.java
+│          │
+│          ├─frontPattern
+│          │      AddressInsertController.java
+│          │      CommonCtroller.java
+│          │      FrontController.java
+│          │      GetPathInfoController.java
+│          │      IdCheckController.java
+│          │      LoginController.java
+│          │      setMyAddController.java
+│          │      UserDeleteController.java
+│          │      UserInsertController.java
+│          │      UserUpdateController.java
+│          │
+│          ├─jsonparser
+│          ├─MarketStoreList
+│          │      AddressToLocation.java
+│          │      DistanceMeasurment.java
+│          │      LocationToAddress.java
+│          │      Menulist.java
+│          │      StoreDetails.java
+│          │      StoreInfoDTO.java
+│          │      StoreList.java
+│          ├─model
+│          │      AddressVO.java
+│          │      UserDAO.java
+│          │      UserService.java
+│          │      UserVO.java
+│          ├─place
+│          │      BusPlace.java
+│          │      Movement.java
+│          │      RouteSummaries.java
+│          │      SubwayPlace.java
+│          │      Summaries.java
+│          │      Walking.java
+│          ├─service
+│          │      ChromeDriverUtil.java
+│          │      FrontController.java
+│          └─util
+│                  Conversion_location.java
+│                  DataUtil.java
+│                  DateUtil.java
+│                  MapToJson.java
+│                  OracleDBUtil.java
+├─target
+├─WebContent
+│  │  chromedriver.exe
+│  │  file.jsp
+│  │  gulpfile.js
+│  │  index.jsp
+│  │  LICENSE
+│  │  nav.jsp
+│  │  package-lock.json
+│  │  package.json
+│  │  README.md
+│  ├─asset
+│  │  ├─font-awesome
+│  ├─META-INF
+│  ├─service
+│  │  │  congnamul.js
+│  │  │  daumMap.jsp
+│  │  │  geolocation.html
+│  │  └─css
+│  ├─user
+│  │      addlist.jsp
+│  │      addressInsert.jsp
+│  │      sign.jsp
+│  │      signUp.jsp
+│  │      userDelete.jsp
+│  │      userDetail.jsp
+│  │      userResult.jsp
+│  └─WEB-INF
+└─WebServiceUML
