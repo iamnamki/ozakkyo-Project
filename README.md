@@ -29,8 +29,12 @@
 - jsoup Web clawring
 
 ## 실행
-- WebContent/service/daumMap.jsp 
--  94 line -> api key값 
+    - WebContent/service/daumMap.jsp  -> 94 line api key값 입력
+    ```
+    <script type="text/javascript"
+	    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=<api key값 입력>&libraries=services"></script>
+    <script>
+    ```
 
 ## 프로젝트 파일 구조
 
