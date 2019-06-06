@@ -69,7 +69,7 @@ public class FrontController extends HttpServlet {
 			}
 			break;
 
-		// 2. id 중복체크 , pw 확인
+		// 2. id 以묐났泥댄겕 , pw �솗�씤
 		case "/user/IdCheckForm":
 			controller = new IdCheckController();
 			if (method.equals("get")) {
@@ -82,24 +82,24 @@ public class FrontController extends HttpServlet {
 			}
 			break;
 
-		// 3.userInsert -- post 회원가입, get 회원정보 수정
+		// 3.userInsert -- post �쉶�썝媛��엯, get �쉶�썝�젙蹂� �닔�젙
 		case "/user/signUp":
 			map.put("user",
 					new UserVO(request.getParameter("id"), request.getParameter("password"),
 							request.getParameter("name"), request.getParameter("email"), request.getParameter("gender"),
 							DateUtil.stringToDate(request.getParameter("birthday")), request.getParameter("partner")));
 			if (method.equals("get")) {
-				// 회원 정보 수정
+				// �쉶�썝 �젙蹂� �닔�젙
 				controller = new UserUpdateController();
 				page = signFolderName + "userResult.jsp";
 			} else {
-				// 회원 가입
+				// �쉶�썝 媛��엯
 				controller = new UserInsertController();
 				page = signFolderName + "userResult.jsp";
 			}
 			break;
 
-		// 4.userDelete --회원탈퇴 처리
+		// 4.userDelete --�쉶�썝�깉�눜 泥섎━
 		case "/user/userDelete":
 			controller = new UserDeleteController();
 			String userid = ((UserVO) sess.getAttribute("user")).getId();
@@ -107,14 +107,14 @@ public class FrontController extends HttpServlet {
 			page = signFolderName + "userResult.jsp";
 			break;
 
-		// 5. addressInsert -- 주소 입력처리
+		// 5. addressInsert -- 二쇱냼 �엯�젰泥섎━
 		case "/user/addressInsert":
 			controller = new AddressInsertController();
 			if (method.equals("get")) {
-				// System.out.println("get 도착...");
+				// System.out.println("get �룄李�...");
 				page = signFolderName + "addressInsert.jsp";
 			} else {
-				// System.out.println("post 도착...");
+				// System.out.println("post �룄李�...");
 				List<AddressVO> addlist = new ArrayList<>();
 				int index = 1;
 				while (request.getParameter("addNo" + index) != null)
@@ -139,6 +139,7 @@ public class FrontController extends HttpServlet {
 			break;
 			
 		case "/geo":
+			System.out.println("geo.go 전송완료");
 			controller = new GetPathInfoController();
 
 			Map<String, List<Movement>> subwayMap = new HashMap<>();
@@ -152,8 +153,8 @@ public class FrontController extends HttpServlet {
 
 				String json = str.substring(str.indexOf('{'), str.length() - 1);
 
-				// 참조경로로 가져와서 값에 반영.
-				// 참조경로로 가져와서 값에 반영.
+				// 李몄“寃쎈줈濡� 媛��졇���꽌 媛믪뿉 諛섏쁺.
+				// 李몄“寃쎈줈濡� 媛��졇���꽌 媛믪뿉 諛섏쁺.
 				PathJsonObject.subwayAndBusJsonByMap(json, busAndSubwayMap, routeSummariesMap);
 				PathJsonObject.subwayJsonByMap(json, subwayMap, routeSummariesMap);
 				PathJsonObject.busJsonByMap(json, busMap, routeSummariesMap);
@@ -186,7 +187,7 @@ public class FrontController extends HttpServlet {
 				
 				return;
 				/*
-				 * 버스와 지하철 혼합경로는 일단 제외. String busAndSubwayJson =
+				 * 踰꾩뒪�� 吏��븯泥� �샎�빀寃쎈줈�뒗 �씪�떒 �젣�쇅. String busAndSubwayJson =
 				 * MapToJson.busAndSubwayJson(busAndSubwayMap);
 				 */
 
@@ -215,16 +216,16 @@ public class FrontController extends HttpServlet {
 		} else if (requestURI.equals("/user/userDelete")) {
 			if ((int) map.get("userResult") > 0) {
 				sess.invalidate();
-				map.put("userResult", "회원 탈퇴가 성공적으로 이루어졌습니다.");
+				map.put("userResult", "�쉶�썝 �깉�눜媛� �꽦怨듭쟻�쑝濡� �씠猷⑥뼱議뚯뒿�땲�떎.");
 			} else
-				map.put("userResult", "회원 탈퇴가 이루어지지 않았습니다.");
+				map.put("userResult", "�쉶�썝 �깉�눜媛� �씠猷⑥뼱吏�吏� �븡�븯�뒿�땲�떎.");
 			page = signFolderName + "userResult.jsp";
 		} else if (requestURI.equals("/user/signUp") && method.equals("get")) {
 //			System.out.println("set session" + map.get("user"));
 			sess.setAttribute("user", map.get("user"));
 		}
 
-		// 로그인 인증되면 index.jsp로 이동, 인증되지 않으면 sign.jsp로 이동 --> redirect 해야함
+		// 濡쒓렇�씤 �씤利앸릺硫� index.jsp濡� �씠�룞, �씤利앸릺吏� �븡�쑝硫� sign.jsp濡� �씠�룞 --> redirect �빐�빞�븿
 		Object result = map.get("loginResult");
 		if (result != null) {
 			if (((String) result).equals("yes")) {
@@ -242,6 +243,11 @@ public class FrontController extends HttpServlet {
 
 		RequestDispatcher view = request.getRequestDispatcher(page);
 		view.forward(request, response);
+	}
+
+	private void alert() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	/**

@@ -10,8 +10,7 @@
 <title>시작 페이지</title>
 <c:set var="path" value="${pageContext.request.contextPath}"></c:set>
 <!-- Bootstrap core CSS -->
-<link href="${path}/asset/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="${path}/asset/vendor/bootstrap/css/bootstrap.min.css"rel="stylesheet">
 
 <!-- Custom fonts for this template -->
 <link href="${path}/asset/vendor/fontawesome-free/css/all.min.css"

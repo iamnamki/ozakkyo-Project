@@ -17,16 +17,20 @@
 	function getRoute() {
 		var start = $("#start").val();
 		var arrive = $("#arrive").val();
-
+		alert(start);
+		alert(arrive);
+		
+		//http://map.daum.net/link/to/카카오판교오피스,37.402056,127.108212
+		//서울 종로구 평동 73,37.56809182095356,126.96663085528881
 		$.ajax({
 			method : 'POST',
+			//url : "link/to/카카오판교오피스,37.402056,127.108212",
 			url : "geo.go?start=" + start + "&arrive=" + arrive,
 			traditional : true,
-			
 			success : function(data) {
 				// 넘겨온 데이터를 쪼개기 위함.
 				var total_str = data.split('/');
-				
+				alert(url);
 				summariesJson = JSON.parse(total_str[0]);
 				subwayJson = JSON.parse(total_str[1]);
 				busJson = JSON.parse(total_str[2]);
@@ -87,8 +91,7 @@
 
 <!-- Custom scripts for map -->
 <script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f2f2e20edcea3241be825db9a7fdd43b&libraries=services"></script>
-
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=<api key값 입력>&libraries=services"></script>
 <script>
 	var markers = [];
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
