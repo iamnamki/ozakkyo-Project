@@ -1,4 +1,4 @@
-# 서비스 정의
+# 서비스 소개
 ```
 오작교 서비스는....
 
@@ -27,6 +27,10 @@
 - MVC 모델 기반의 JSP
 - 다음 Map api
 - jsoup Web clawring
+
+## 실행
+- WebContent/service/daumMap.jsp 
+-  94 line -> api key값 
 
 ## 프로젝트 파일 구조
 
